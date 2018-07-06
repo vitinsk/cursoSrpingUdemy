@@ -1,24 +1,25 @@
 package com.example.demo.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Categoria;
-import com.example.demo.services.CategoriaService;
+import com.example.demo.model.Cliente;
+import com.example.demo.services.ClienteService;
 
 @RestController
-@RequestMapping("/categoria")
-public class CategoriaResource {
+@RequestMapping("/cliente")
+public class ClienteResource {
 
 	@Autowired
-	private CategoriaService service;
+	private ClienteService service;
 	
 	@GetMapping("/{id}")
-	public Categoria find(@PathVariable Integer id){
-		Categoria obj = service.buscar(id);
+	public Cliente find(@PathVariable Integer id){
+		Cliente obj = service.buscar(id);
 		return obj;
 	}
 }

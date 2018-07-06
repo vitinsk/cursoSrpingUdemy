@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 import com.example.demo.model.Endereco;
 import com.example.demo.model.enums.TipoCliente;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -29,6 +30,7 @@ public class Cliente implements Serializable {
 	private String CpfCnpj;
 	private Integer tipoCliente;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
