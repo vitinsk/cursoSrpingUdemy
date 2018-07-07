@@ -52,7 +52,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 		this.email = email;
 		CpfCnpj = cpfCnpj;
-		this.tipoCliente = tipoCliente.GetCod();
+		this.tipoCliente = (tipoCliente==null) ? null : tipoCliente.GetCod();
 	}
 
 	public Integer getId() {
