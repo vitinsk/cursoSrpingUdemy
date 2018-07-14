@@ -30,6 +30,8 @@ public class Cliente implements Serializable {
 	private String CpfCnpj;
 	private Integer tipoCliente;
 	
+	@JsonIgnore
+	private String senha;
 	
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
@@ -46,13 +48,14 @@ public class Cliente implements Serializable {
 		
 	}
 
-	public Cliente(Integer id, String nome, String email, String cpfCnpj, TipoCliente tipoCliente) {
+	public Cliente(Integer id, String nome, String email, String cpfCnpj, TipoCliente tipoCliente, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		CpfCnpj = cpfCnpj;
 		this.tipoCliente = (tipoCliente==null) ? null : tipoCliente.GetCod();
+		this.senha = senha;
 	}
 
 	public Integer getId() {
@@ -142,6 +145,14 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 
